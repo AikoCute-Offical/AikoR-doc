@@ -1,7 +1,8 @@
-# Cài đặt bằng docker
+# Using Docker HUB
 
-địa chỉ gương：https://github.com/AikoR-project/AikoR/pkgs/container/AikoR
-## docker image tag
+Link : [https://github.com/AikoCute-Offical/AikoR-Docker-Hub](https://github.com/AikoCute-Offical/AikoR-Docker-Hub)
+
+## Docker image tag
 
 `master`: Phù hợp với cam kết mới nhất của dự án.
 
@@ -51,7 +52,7 @@ curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compo
 chmod +x /usr/local/bin/docker-compose
 ```
 
-## Docker-compose Cài đặt AikoR \(giới thiệu\)
+## Docker-compose Cài đặt AikoR (giới thiệu)
 
 1. `git clone https://github.com/AikoCute-Offical/AikoR-Docker-Hub.git`
 2. `cd AikoR-Docker-Hub`
@@ -76,4 +77,3 @@ Lưu ý rằng thực thi trong thư mục chứa docker-compost.yml:
 docker-compose pull
 docker-compose up -d
 ```
-
