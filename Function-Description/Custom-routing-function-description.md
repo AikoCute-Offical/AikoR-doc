@@ -1,4 +1,4 @@
-# Mô tả chức năng định tuyến tùy chỉnh
+# Custom routing function description
 
 AikoRHỗ trợ đầy đủ cho tất cảXray-coreChức năng định tuyến tùy chỉnh được cung cấp được kích hoạt như sau：
 
@@ -12,8 +12,8 @@ AikoRHỗ trợ đầy đủ cho tất cảXray-coreChức năng định tuyến
 
 ### Ví dụ về chức năng định tuyến tùy chỉnh
 
-```text
-{
+```
+  {
     "domainStrategy": "IPOnDemand",
     "rules": [
         {
@@ -40,4 +40,3 @@ AikoRHỗ trợ đầy đủ cho tất cảXray-coreChức năng định tuyến
     ]
 }
 ```
-
