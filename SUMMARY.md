@@ -54,5 +54,4 @@
 ## Mixed item
 
 * [Memory optimization related](Mixed-item/memopt.md)
-* [Shadowsocks - V2Ray-Plugin](Mixed-item/shadowsocks-v2rayplugin.md)
 * [Nginx+Trojan Temporarily！](Mixed-item/nginx+trojan.md)

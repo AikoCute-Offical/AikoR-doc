@@ -1,12 +1,12 @@
-# Nginx+Trojan！
+# Nginx+Trojan Temporarily！
 
-sử dụngNginxđối phó vớiTrojancủaTLS，Trojanthực hiện một pullback。Tôi muốn gọi anh ấy là một vị thần trong lúc này！
+sử dụng Nginx đối phó với Trojan của TLS，Trojan thực hiện một pullback.
 
-## NginxCài đặt
+## Nginx Cài đặt
 
 CentOS：
 
-```text
+```
  yum update
  yum install -y nginx
  yum install nginx-mod-stream
@@ -14,16 +14,16 @@ CentOS：
 
 Ubuntu/Debian:
 
-```text
+```
  apt update
  apt install nginx
 ```
 
-## Nginxcấu hình
+## Nginx cấu hình
 
 Ôn lại/etc/nginx/nginx.conf tập tin cấu hình：
 
-```text
+```
 stream {
     server {
         listen              443 ssl;                    # Đặt cổng nghe thành 443
@@ -45,7 +45,7 @@ Vui lòng thêm mã trên vào **http**và**events**hàng giữa
 
 **/etc/nginx/nginx.confTham chiếu tệp cấu hình：**
 
-```text
+```
 events {
     worker_connections 768;
     # multi_accept on;
@@ -76,9 +76,9 @@ http {
 
 **Các biện pháp phòng ngừa：**
 
-**1. Hãy cấu hìnhSSLGiấy chứng nhận**
+**1. Hãy cấu hình SSL Giấy chứng nhận**
 
-**2. proxy\_pass 127.0.0.1:1234 phía sau cuốiTrojanCổng lắng nghe giống như cổng lắng nghe của nút giao diện người dùng trên trang web của bạn**
+**2. proxy\_pass 127.0.0.1:1234 phía sau cuối Trojan Cổng lắng nghe giống như cổng lắng nghe của nút giao diện người dùng trên trang web của bạn**
 
 **3. listencổng có thể1-65535Vui lòng sửa đổi，Đây là cổng kết nối máy khách**
 
@@ -90,11 +90,11 @@ sudo setenforce 0
 sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 {% endhint %}
 
-## AikoR Trojancấu hình
+## AikoR Trojan cấu hình
 
 **cấu hình chính：**
 
-```text
+```
 ListenIP: 127.0.0.1
 EnableProxyProtocol: true
 EnableFallback: true
@@ -111,7 +111,7 @@ CertMode: none
 
 **Hoàn thành ví dụ**
 
-```text
+```
   -
     PanelType: "SSpanel" # Panel type: SSpanel, V2board, PMpanel
     ApiConfig:
@@ -153,13 +153,12 @@ CertMode: none
 
 ## khởi động lại và kiểm tra Nginx và AikoR
 
-```text
+```
 systemctl restart nginx
 AikoR restart
 ```
 
-```text
+```
 systemctl status nginx
 AikoR status
 ```
-
