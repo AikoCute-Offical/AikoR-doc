@@ -6,7 +6,8 @@
 
 * [Download and install](Download-and-install/install/README.md)
   * [Install One Link](Download-and-install/install/one-click.md)
-  * [Use docker installation](Download-and-install/install/docker.md)
+  * [Using Docker HUB](Download-and-install/install/docker-hub.md)
+  * [Using Docker Package](Download-and-install/install/docker-package.md)
   * [Manual installation](Download-and-install/install/manual.md)
 
 ## AikoR configuration file description
