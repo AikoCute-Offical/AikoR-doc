@@ -1,4 +1,4 @@
-# Fallback Mô tả chức năng
+# Fallback function description
 
 > fallback vì XrayCung cấp khả năng phát hiện chống chủ động cường độ cao, Và có cơ chế dự phòng gói đầu tiên ban đầu.
 >
@@ -6,9 +6,9 @@
 >
 > Hiện tại bạn có thể sử dụng VLESS hoặc trojan hiệp định, theo cấu hình fallbacks để sử dụng tính năng dự phòng, Và tạo ra sự kết hợp rất phong phú của lối chơi.
 >
-> ---[https://xtls.github.io/config/features/fallback.html](https://xtls.github.io/config/features/fallback.html)
+> \---[https://xtls.github.io/config/features/fallback.html](https://xtls.github.io/config/features/fallback.html)
 
-## cho phépFallbackHàm số
+## cho phép Fallback Hàm số
 
 cài đặt`EnableFallback`vì`true`，và cấu hình`FallBackConfigs`
 
@@ -24,9 +24,9 @@ ControllerConfig:
       ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
 ```
 
-## 配置Fallback
+## Fallback
 
-AikoRtheo dõiXrayÝ tưởng thiết kế，Hỗ trợ một nút nhiềuFallbackcài đặt，vì thế`FallBackConfigs`như một mảng，Ví dụ về mỗi phần tử con như sau：
+AikoR theo dõi Xray tưởng thiết kế，Hỗ trợ một nút nhiềuFallbackcài đặt，vì thế`FallBackConfigs`như một mảng，Ví dụ về mỗi phần tử con như sau：
 
 ```yaml
 -
@@ -39,14 +39,13 @@ AikoRtheo dõiXrayÝ tưởng thiết kế，Hỗ trợ một nút nhiềuFallba
 
 ### SNI: string
 
-cố gắng kết hợp TLS SNI\(Server Name Indication\)，trống cho bất kỳ，Mặc định là ""
+cố gắng kết hợp TLS SNI(Server Name Indication)，trống cho bất kỳ，Mặc định là ""
 
 ### Alpn: string
+
 cố gắng kết hợp TLS ALPN Kết quả đàm phán，trống cho bất kỳ，Mặc định là ""
 
-khi cần，VLESS sẽ cố gắng đọc TLS ALPN Kết quả đàm phán，nếu thành công，đầu ra info `realAlpn =` để đăng nhập。
-Sử dụng: đã giải quyết Nginx của h2c Các dịch vụ không tương thích đồng thời http/1.1 Vấn đề，Nginx cần viết hai dòng listen，được sử dụng cho 1.1 và h2c。
-Để ý：fallbacks alpn hiện hữu `"h2"` Thời gian，[Inbound TLS](../transport.md#tlsobject) cần phải được thiết lập `"alpn":["h2","http/1.1"]`，để hỗ trợ truy cập h2。
+khi cần，VLESS sẽ cố gắng đọc TLS ALPN Kết quả đàm phán，nếu thành công，đầu ra info `realAlpn =` để đăng nhập。 Sử dụng: đã giải quyết Nginx của h2c Các dịch vụ không tương thích đồng thời http/1.1 Vấn đề，Nginx cần viết hai dòng listen，được sử dụng cho 1.1 và h2c。 Để ý：fallbacks alpn hiện hữu `"h2"` Thời gian，[Inbound TLS](../transport.md#tlsobject) cần phải được thiết lập `"alpn":["h2","http/1.1"]`，để hỗ trợ truy cập h2。
 
 {% hint style="info" %}
 Fallback đặt trong `alpn` là để phù hợp với thương lượng thực tế ALPN，và Inbound TLS bộ `alpn` là danh sách các ALPN tùy chọn trong quá trình bắt tay，Cả hai đều có ý nghĩa khác nhau。
@@ -60,14 +59,14 @@ Thông minh: khi cần thiết，VLESS sẽ cố gắng để có một cái nh�
 
 Để ý：fallbacks nơi mà bản thân nó phải ở TCP+TLS，Cái này được chuyển hướng sang cái khác WS cho đến，Chuyển hướng đến không cần phải định cấu hình TLS。
 
-### Dest: string\|number
+### Dest: string|number
 
 Quyết định TLS sau khi giải mã TCP giao thông đang đi đến đâu，Hiện hỗ trợ hai loại địa chỉ：（Trường này là bắt buộc，Nếu không nó sẽ không bắt đầu）
 
 1. TCP，Định dạng là "addr:port"，Trong addr ủng hộ IPv4、tên miền、IPv6，Nếu bạn điền vào tên miền，cũng sẽ trực tiếp bắt đầu TCPliên kết（thay vì đi bộ cài sẵn DNS）。
-2. Unix domain socket，định dạng là đường dẫn tuyệt đối，Có hình dạng như "/dev/shm/domain.socket"，có thể được thêm vào đầu "@" đại diện abstract，"@@" đại diện cho thắt lưng padding của abstract。
+2.  Unix domain socket，định dạng là đường dẫn tuyệt đối，Có hình dạng như "/dev/shm/domain.socket"，có thể được thêm vào đầu "@" đại diện abstract，"@@" đại diện cho thắt lưng padding của abstract。
 
-   Nếu chỉ điền vào port，Số hoặc chuỗi có thể là，Có hình dạng như 80、"80"，thường trỏ đến một bản rõ http Phục vụ（addr sẽ được bổ sung như "127.0.0.1"）。
+    Nếu chỉ điền vào port，Số hoặc chuỗi có thể là，Có hình dạng như 80、"80"，thường trỏ đến một bản rõ http Phục vụ（addr sẽ được bổ sung như "127.0.0.1"）。
 
 ### ProxyProtocolVer: number
 
@@ -83,7 +82,7 @@ Hiện tại điền 1 hoặc 2, chức năng hoàn toàn giống nhau, nhưng c
 
 AikoRcài đặt
 
-```text
+```
 EnableFallback: true
 FallBackConfigs:  # Support multiple fallbacks
   -
@@ -96,7 +95,7 @@ FallBackConfigs:  # Support multiple fallbacks
 
 Nginx cài đặt
 
-```text
+```
 server {  
     listen 8080 http2;
   root /var/www/public; # thay đổi con đường của riêng bạn
@@ -117,4 +116,3 @@ server {
 ## tham khảo
 
 [Xray Fallback](https://xtls.github.io/config/features/fallback.html)
-
