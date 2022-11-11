@@ -53,11 +53,12 @@ Nodes:
         LimitSpeed: 0 # The speedlimit of a limited user (unit: mbps)
         LimitDuration: 0 # How many minutes will the limiting last (unit: minute)
       RedisConfig:
-        Limit: 0 # The global device limit of a user, 0 means disable
-        RedisAddr: 127.0.0.1:6379 # The redis server address
-        RedisPassword: YOUR PASSWORD # Redis password
-        RedisDB: 0 # Redis DB
-        Expiry: 60 # Expiry time (minute)
+        RedisLimit: 0 # The Redis limit of a user, 0 means disable
+        RedisAddr: 127.0.0.1:6379 # The redis server address format: (IP:Port)
+        RedisPassword: PASSWORD # Redis password
+        RedisDB: 0 # Redis DB (Redis database number, default 0, no need to change)
+        Timeout: 5 # Timeout for Redis request
+        Expiry: 60 # Expiry time ( Cache time of online IP, unit: second )
       EnableFallback: false # Only support for Trojan and Vless
       FallBackConfigs:  # Support multiple fallbacks
         -
