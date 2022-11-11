@@ -50,6 +50,7 @@
 * [Audit function description](Function-Description/rule.md)
 * [Automatic application certificate description](Function-Description/cert.md)
 * [Fallback function description](Function-Description/fallback.md)
+* [Redis Limit Function](Function-Description/redislimit.md)
 
 ## Mixed item
 
