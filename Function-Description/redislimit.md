@@ -42,6 +42,12 @@ Set the redis password to ensure safety, please set a longer random password
 echo "requirepass 123456" >> /etc/redis.conf
 ```
 
+Set maxmemory to limit the maximum memory usage of redis (optional)
+
+```bash
+echo "maxmemory 512MB" >> /etc/redis.conf
+```
+
 Start redis and set up the boot self -starting
 
 ```bash
