@@ -79,3 +79,23 @@ RedisConfig:
 AikoR sẽ lưu trữ IP của thiết bị đang kết nối vào Redis, và sẽ xóa IP của thiết bị khi ngắt kết nối. Nếu số lượng thiết bị kết nối đến tài khoản vượt quá giới hạn, AikoR sẽ không cho phép kết nối đến tài khoản.
 
 Nếu RedisLimit sẽ được ưu tiên hơn DeviceLimit trong tệp cấu hình. Nếu RedisLimit = 0, AikoR sẽ sử dụng DeviceLimit.
+
+## 3 Vấn đề thường gặp
+
+### 3.1 Dịch vụ Redis có ngắt kết nối đột ngột không ? Nó sẽ ảnh hưởng đến việc người dùng sử dụng?
+
+Nó sẽ không ảnh hưởng đến việc sử dụng người dùng bình thường, nhưng số giới hạn tăng cường/số kết nối sẽ không thành công và nó sẽ trở lại một giới hạn nút duy nhất cho đến khi dịch vụ Redis có thể được truy cập lại. Quá trình này tự động chuyển đổi mà không cần quan tâm. Những gì bạn cần đảm bảo là dịch vụ Redis có thể truy cập thông thường.
+
+### 3.2 RedisLimit Ý nghĩa cụ thể 
+
+Giá trị này là thời gian của IP/thiết bị trực tuyến bộ đệm, đơn vị: Giây. Giải thích đơn giản: Khi đạt được số lượng/thiết bị của IP của người dùng, khi bạn muốn chuyển đổi IP/thiết bị, nó cần phải chờ khoảng thời gian để chờ (bắt đầu từ IP/thiết bị được kết nối trước đó được tính toán).
+
+Giá trị này không nên được đặt quá nhỏ hoặc quá lớn, vui lòng điều chỉnh theo kinh nghiệm thực tế của bạn.
+
+### 3.3 Tôi có nhiều Panel/nhiều phụ trợ, tôi có cần cài đặt nhiều redis không?
+
+Không, có 16 số cơ sở dữ liệu trong cấu hình mặc định của Redis và số là 0-15, có thể được phân tách.
+
+### 3.4 Tôi có nhiều bảng/nhiều phụ trợ, làm thế nào tôi có thể để chúng hạn chế toàn bộ biên giới cùng nhau?
+
+Bạn có thể sử dụng Redis để hạn chế số lượng thiết bị kết nối đến tài khoản, và sử dụng RedisLimit để hạn chế số lượng thiết bị kết nối đến tài khoản. Nếu bạn muốn tách riêng từng gói thì có thể sử dụng redis DB từ 0-15 để phân tách.
