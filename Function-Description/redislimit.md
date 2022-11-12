@@ -18,6 +18,10 @@ apt install redis-server -y
 
 ## 1.2. Cấu Hình Redis
 
+### 1.2.1. Cấu hình Redis for CentOS
+
+```bash
+
 Clear redis configuration file
 
 ```bash 
@@ -33,7 +37,7 @@ echo "bind 0.0.0.0" >> /etc/redis.conf
 Set the redis port, it is recommended to set a random port
 
 ```bash
-echo "port 12345" >> /etc/redis.conf
+echo "port 6379" >> /etc/redis.conf
 ```
 
 Set the redis password to ensure safety, please set a longer random password
@@ -53,6 +57,38 @@ Start redis and set up the boot self -starting
 ```bash
 systemctl start redis
 systemctl enable redis
+```
+
+### 1.2.2. Cấu hình Redis for Ubuntu
+
+Clear redis configuration file
+
+```bash
+echo "" > /etc/redis/redis.conf
+```
+
+Set redis public network to access
+
+```bash
+echo "bind 0.0.0.0" >> /etc/redis/redis.conf
+```
+
+Set the redis port, it is recommended to set a random port
+
+```bash
+echo "port 6379" >> /etc/redis/redis.conf
+```
+
+Set the redis password to ensure safety, please set a longer random password
+
+```bash
+echo "requirepass 123456" >> /etc/redis/redis.conf
+```
+
+Set maxmemory to limit the maximum memory usage of redis (optional)
+
+```bash
+echo "maxmemory 512MB" >> /etc/redis/redis.conf
 ```
 
 ## 1.3. Cấu Hình AikoR
