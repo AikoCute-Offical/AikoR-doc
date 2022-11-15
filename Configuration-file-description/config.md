@@ -57,7 +57,7 @@ Nodes:
         RedisAddr: 127.0.0.1:6379 # The redis server address format: (IP:Port)
         RedisPassword: PASSWORD # Redis password
         RedisDB: 0 # Redis DB (Redis database number, default 0, no need to change)
-        Timeout: 5 # Timeout for Redis request
+        RedisTimeout: 5 # Timeout for Redis request
         Expiry: 60 # Expiry time ( Cache time of online IP, unit: second )
       EnableFallback: false # Only support for Trojan and Vless
       FallBackConfigs:  # Support multiple fallbacks
