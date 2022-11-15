@@ -122,6 +122,7 @@ AikoR sẽ lưu trữ IP của thiết bị đang kết nối vào Redis, và s�
 
 Nếu RedisLimit sẽ được ưu tiên hơn DeviceLimit trong tệp cấu hình. Nếu RedisLimit = 0, AikoR sẽ sử dụng DeviceLimit.
 
+Bạn muốn sử dụng chức năng giới hạn thiết bị tốt nhất , Vui lòng set DeviceLimit = 0, RedisLimit > 0. Điều này sẽ giúp bạn giảm thiểu tải cho AikoR.
 ## 3 Vấn đề thường gặp
 
 ### 3.1 Dịch vụ Redis có ngắt kết nối đột ngột không ? Nó sẽ ảnh hưởng đến việc người dùng sử dụng?
