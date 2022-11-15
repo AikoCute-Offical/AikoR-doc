@@ -113,7 +113,7 @@ RedisConfig:
 | RedisAddr     | Định dạng địa chỉ máy chủ Redis: (IP: Cổng)                                 |
 | RedisPassword | Mật khẩu của Redis Server                                                   |
 | RedisDB       | Redis DB (Số cơ sở dữ liệu Redis, mặc định 0, không cần thay đổi)           |    
-| Timeout       | Thời gian chờ cho yêu cầu Redis (Đơn vị: giây)                              |
+| RedisTimeout       | Thời gian chờ cho yêu cầu Redis (Đơn vị: giây)                              |
 | Expiry        | Thời gian hết hạn (Thời gian lưu trữ IP trực tuyến, đơn vị: giây)           |
 
 ## 2.1. Chức năng Giới hạn thiết bị
