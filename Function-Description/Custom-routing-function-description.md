@@ -6,9 +6,9 @@ AikoRHỗ trợ đầy đủ cho tất cảXray-coreChức năng định tuyến
 2. hiện hữu`aiko.yml`Cấu hình trung bình`RouteConfigPath`vì route.json một phần của。
 3. Nếu bạn muốn bật cấu hình liên quan đến địa lý, hãy đảm bảo`geoip.dat`và`geosite.dat`trong va`aiko.yml`cùng một thư mục。
 
-{% hint style="info" %}
+## Cấu hình định tuyến tùy chỉnh
 Được tạo tự động từ các nút có được từ xa inboundTag/outboundTag theo dõi：`NodeType_ListenIP_Port`hình thức. giống：`V2ray_0.0.0.0_80`。Thẻ đến / thẻ đi giống nhau。
-{% endhint %}
+
 
 ### Ví dụ về chức năng định tuyến tùy chỉnh
 
