@@ -8,9 +8,7 @@
 ## Cài đặt giới hạn tốc độ nút cục bộ
 Đối với bảng không hỗ trợ cài đặt giới hạn tốc độ từ xa: chẳng hạn như V2board, giới hạn tốc độ có thể được đặt trong tệp cấu hình cục bộ `SpeedLimit`. Lưu ý rằng cài đặt này ghi đè giới hạn tốc độ cấp nút để tìm nạp từ xa.
 
-{% hint style="info" %}
-Giới hạn tốc độ nút: Tất cả các giá trị giới hạn tốc độ của người dùng được kết nối với nút này sẽ nhận giá trị được đặt trong `SpeedLimit` ** (không phải giới hạn tốc độ cổng)**
-{% endhint %}
+Giới hạn tốc độ nút: Tất cả các giá trị giới hạn tốc độ của người dùng được kết nối với nút này sẽ nhận giá trị được đặt trong `SpeedLimit` ** (không phải giới hạn tốc độ cổng)**.
 
 Vui lòng tham khảo tệp cấu hình: [Mô tả tệp cấu hình](../Configuration-file-description/config.md)
 
@@ -18,9 +16,8 @@ Vui lòng tham khảo tệp cấu hình: [Mô tả tệp cấu hình](../Configu
 
 AikoR Hỗ trợ chức năng giới hạn tốc độ động, giá trị giới hạn tốc độ có thể được điều chỉnh theo lưu lượng sử dụng của người dùng. hiện hữu`ControllerConfig` Định cấu hình các mục sau trong。
 
-{% hint style="info" %}
+
 Để đảm bảo có thể kịp thời điều chỉnh giới hạn tốc độ cho các kết nối dài (chẳng hạn như tải xuống dài), hãy đảm bảo rằng giá trị giới hạn tốc độ mặc định lớn hơn 0. Giá trị giới hạn tốc độ mặc định lớn hơn 0 có thể được định cấu hình tại bất kỳ vị trí nào của người dùng, nút hoặc cục bộ và ưu tiên là cục bộ> nút> người dùng. Nếu giá trị giới hạn tốc độ mặc định là 0, giới hạn tốc độ động của người dùng sẽ chỉ có hiệu lực vào lần thiết lập kết nối tiếp theo.
-{% endhint %}
 
 
 ```yaml
