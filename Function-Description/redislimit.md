@@ -59,7 +59,7 @@ systemctl start redis
 systemctl enable redis
 ```
 
-### 1.2.2. Cấu hình Redis for Ubuntu
+### 1.2.2. Cấu hình Redis for Ubuntu or Debian
 
 Clear redis configuration file
 
@@ -99,7 +99,7 @@ AikoR Hỗ trợ chức năng giới hạn theo tài khoản, vui lòng tham kh�
 
 ```yaml
 RedisConfig:
-    RedisLimit: 0 # The Redis limit of a user, 0 means disable
+    RedisEnable: false # Enable redis limit
     RedisAddr: 127.0.0.1:6379 # The redis server address format: (IP:Port)
     RedisPassword: PASSWORD # Redis password
     RedisDB: 0 # Redis DB (Redis database number, default 0, no need to change)
@@ -109,20 +109,24 @@ RedisConfig:
 
 | tham số       | Minh họa                                                                    |
 | ------------- | --------------------------------------------------------------------------- |
-| RedisLimit    | Giới hạn redis của người dùng, 0 có nghĩa là vô hiệu hóa                    |
+| RedisEnable    | Giới hạn redis của người dùng ( Bật Tắt )                    |
 | RedisAddr     | Định dạng địa chỉ máy chủ Redis: (IP: Cổng)                                 |
 | RedisPassword | Mật khẩu của Redis Server                                                   |
 | RedisDB       | Redis DB (Số cơ sở dữ liệu Redis, mặc định 0, không cần thay đổi)           |    
 | RedisTimeout       | Thời gian chờ cho yêu cầu Redis (Đơn vị: giây)                              |
 | Expiry        | Thời gian hết hạn (Thời gian lưu trữ IP trực tuyến, đơn vị: giây)           |
 
-## 2.1. Chức năng Giới hạn thiết bị
+## 2.1. Chức năng Giới hạn Redis
 
-AikoR sẽ lưu trữ IP của thiết bị đang kết nối vào Redis, và sẽ xóa IP của thiết bị khi ngắt kết nối. Nếu số lượng thiết bị kết nối đến tài khoản vượt quá giới hạn, AikoR sẽ không cho phép kết nối đến tài khoản.
+Khi giá trị RedisEnable được đặt thành true, AikoR sẽ kết nối đến Redis Server và lưu trữ các thông tin IP trực tuyến của người dùng. Khi người dùng đăng nhập, AikoR sẽ kiểm tra số lượng IP trực tuyến của người dùng, nếu số lượng IP trực tuyến vượt quá giới hạn, người dùng sẽ không thể đăng nhập.
 
-Nếu RedisLimit sẽ được ưu tiên hơn DeviceLimit trong tệp cấu hình. Nếu RedisLimit = 0, AikoR sẽ sử dụng DeviceLimit.
+AikoR lấy giá trị DeviceLimit từ tệp cấu hình để xác định giới hạn của người dùng. Nếu giá trị DeviceLimit của người dùng là 0, người dùng sẽ không bị giới hạn số lượng thiết bị trực tuyến.
 
-Bạn muốn sử dụng chức năng giới hạn thiết bị tốt nhất , Vui lòng set DeviceLimit = 0, RedisLimit > 0. Điều này sẽ giúp bạn giảm thiểu tải cho AikoR.
+AikoR sẽ lấy giá trị của `Expiry` Để xác định thời gian lưu trữ của IP trực tuyến, đơn vị là giây. Ví dụ: `Expiry: 60` Thời gian lưu trữ của IP trực tuyến là 60 giây.
+
+## 2.2. Chức năng Giới hạn tài khoản
+
+AikoR sẽ lưu trữ tài khoản đang kết nối vào Redis, và sẽ xóa tài khoản khi ngắt kết nối. Nếu số lượng tài khoản kết nối đến tài khoản vượt quá giới hạn, AikoR sẽ không cho phép kết nối đến tài khoản.
 ## 3 Vấn đề thường gặp
 
 ### 3.1 Dịch vụ Redis có ngắt kết nối đột ngột không ? Nó sẽ ảnh hưởng đến việc người dùng sử dụng?
